@@ -1,5 +1,5 @@
 const express = require("express");
-const mysql = require("mysql");
+const mysql = require("mysql2");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const connect = require("./configs/db");
@@ -10,7 +10,5 @@ app.use(cors());
 app.use(express.json());
 
 app.listen(port, async function () {
-  await connect();
-
-  console.log("listening to port:", port);
+  connect();
 });
