@@ -6,19 +6,14 @@ const connection = mysql.createConnection({
   password: process.env.DATABASE_PASSWORD,
   database: process.env.DATABASE,
 });
-module.exports = () => {
-  return connection.connect((er, data) => {
-    if (er) throw er;
-    console.log("Connected to the database");
-  });
-};
+connection.connect((err) => {
+  if (err) {
+    console.error("Error connecting to MySQL:", err);
+    return;
+  }
+  console.log("Connected to MySQL");
+});
 
-// connection.connect();
+// Perform your database operations here...
 
-// connection.query("SELECT 1 + 1 AS solution", (err, rows, fields) => {
-//   if (err) throw err;
-
-//   //   console.log("The solution is: ", rows[0].solution);
-// });
-
-// connection.end();
+connection.end();

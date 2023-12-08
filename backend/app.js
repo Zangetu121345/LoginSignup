@@ -9,6 +9,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.listen(port, async function () {
-  connect();
-});
+// app.listen(port, async function () {
+//   connect();
+// });
