@@ -22,6 +22,7 @@
 .login_main_div input {
   padding: 8px;
   border-radius: 4px;
+  border: 1px solid rgb(193, 185, 185);
 }
 .login_btn {
   padding: 8px;
