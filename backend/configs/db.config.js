@@ -11,7 +11,8 @@ module.exports = {
     min: process.env.DATABASE_POOL_MIN,
     acquire: process.env.DATABASE_POOL_AQUIRE,
     idle: process.env.DATABASE_POOL_IDLE
-  }
+  },
+  secret : "thisIsMySecretKey" 
 };
 
 

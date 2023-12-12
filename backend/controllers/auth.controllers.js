@@ -59,6 +59,7 @@ exports.signin = async (req, res) => {
     for (let i = 0; i < roles.length; i++) {
       authorities.push("ROLE_" + roles[i].name.toUpperCase());
     }
+    console.log(req.session);
     req.session.token = token;
     return res.status(200).send({
       id: user.id,
@@ -74,7 +75,7 @@ exports.signout = async (req, res) => {
   try {
     req.session = null;
     return res.status(200).send({
-      message: "You've been signed out!"
+      message: "You've been signed out!",
     });
   } catch (err) {
     this.next(err);
