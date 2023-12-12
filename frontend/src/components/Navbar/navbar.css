@@ -1,0 +1,12 @@
+.navbar_main {
+  width: 100%;
+  color: white;
+  background-color: rgb(85, 83, 83);
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.navbar_main a {
+  text-decoration: none;
+  color: white;
+}
