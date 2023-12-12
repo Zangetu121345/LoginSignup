@@ -26,10 +26,8 @@ checkDuplicateUsernameOrEmail = async (req, res, next) => {
         message: "Failed! Email is already in use!",
       });
     }
-    console.log("yha tk pahucha");
     next();
   } catch (error) {
-    console.log(error);
     return res.status(500).send({
       message: "Unable to validate Username!",
     });
