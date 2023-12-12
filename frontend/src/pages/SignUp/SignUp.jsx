@@ -24,10 +24,11 @@ const SignUp = () => {
         ...user,
         roles: ["user"],
       });
-      const data = res.json();
+      const data = res.data;
+      toast.success(data.message);
       console.log("data", data);
     } catch (e) {
-      console.log(e);
+      toast.error(e.response.data.message);
     }
   };
 

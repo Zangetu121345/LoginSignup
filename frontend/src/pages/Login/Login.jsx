@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
 import "./login.css";
 
 const Login = () => {
@@ -11,9 +13,18 @@ const Login = () => {
     setuser({ ...user, [name]: value });
   };
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-    console.log(user);
+    try {
+      const res = await axios.post("http://localhost:8080/api/auth/signin", {
+        ...user,
+      });
+      const data = res.data;
+      toast.success(data.message);
+      console.log("data", data);
+    } catch (e) {
+      toast.error(e.response.data.message);
+    }
   };
 
   return (
