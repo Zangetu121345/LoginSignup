@@ -12,6 +12,7 @@ exports.signup = async (req, res) => {
       username: req.body.username,
       email: req.body.email,
       password: bcrypt.hashSync(req.body.password, 8),
+      contact: req.body.contact
     });
     if (req.body.roles) {
       const roles = await Role.findAll({
@@ -59,7 +60,6 @@ exports.signin = async (req, res) => {
     for (let i = 0; i < roles.length; i++) {
       authorities.push("ROLE_" + roles[i].name.toUpperCase());
     }
-    console.log(req.session);
     req.session.token = token;
     return res.status(200).send({
       id: user.id,
