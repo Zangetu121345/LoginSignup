@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "./login.css";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [user, setuser] = useState({
-    email: "",
+    username: "",
     password: "",
   });
+  const navigate = useNavigate();
   const changeHandler = (e) => {
     const { name, value } = e.target;
     setuser({ ...user, [name]: value });
@@ -21,6 +23,9 @@ const Login = () => {
       });
       const data = res.data;
       toast.success(data.message);
+      if (data.message != "Invalid Password!") {
+        navigate("/home");
+      }
       console.log("data", data);
     } catch (e) {
       toast.error(e.response.data.message);
@@ -33,9 +38,9 @@ const Login = () => {
       <form className="login_main_div" onSubmit={submitHandler}>
         <input
           placeholder="enter email "
-          type="email"
-          name="email"
-          value={user.email}
+          type="text"
+          name="username"
+          value={user.username}
           onChange={(e) => changeHandler(e)}
         />
 

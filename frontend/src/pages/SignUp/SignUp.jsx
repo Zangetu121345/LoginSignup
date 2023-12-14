@@ -7,7 +7,7 @@ const SignUp = () => {
   const [user, setuser] = useState({
     username: "",
     email: "",
-    mobile: "",
+    contact: "",
     password: "",
     retype_password: "",
   });
@@ -53,8 +53,8 @@ const SignUp = () => {
         <input
           placeholder="enter mobile number "
           type="tel"
-          name="mobile"
-          value={user.mobile}
+          name="contact"
+          value={user.contact}
           onChange={(e) => changeHandler(e)}
         />
 
