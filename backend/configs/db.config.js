@@ -12,7 +12,7 @@ module.exports = {
     acquire: process.env.DATABASE_POOL_AQUIRE,
     idle: process.env.DATABASE_POOL_IDLE
   },
-  secret : "thisIsMySecretKey" 
+  secret : process.env.JWT_SECRET_KEY 
 };
 
 
