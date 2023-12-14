@@ -62,10 +62,15 @@ exports.signin = async (req, res) => {
     }
     req.session.token = token;
     return res.status(200).send({
+      data:{
       id: user.id,
       username: user.username,
       email: user.email,
       roles: authorities,
+      },
+      status : 200,
+      accessToken : token,
+      message : "Login Successful"
     });
   } catch (error) {
     return res.status(500).send({ message: error.message });
